@@ -20,5 +20,8 @@ while 1 :
     print(html.text)
     res = json.loads(html.text)
     len_video = len(res['data']['medias'][0])
-    for id in range(0,len_video):
-        create_thread(res['data']['medias'][id])
+    try:
+        for id in range(0,len_video):
+            create_thread(res['data']['medias'][id])
+    except Exception as e:
+        print(e)
